@@ -1,300 +1,1595 @@
- <!DOCTYPE html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetFly Web | Professional Business Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;900&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>NetFly Web - Professional Websites For Every Business</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
-            --primary: #ff1e56; 
-            --bg: #000000;
-            --card-bg: #0d0d0d;
-            --border: #1f1f1f;
-            --text-gray: #a1a1aa;
-            --wa-green: #25d366;
-            --gold: #ffaa00;
+            --brand-emerald: #10b981;
+            --brand-blue: #38bdf8;
+            --text-white: #f3f4f6;
+            --dark-bg-start: #030712;
+            --dark-bg-end: #0b1529;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --padding-section: 6rem 2rem;
+            --max-width: 1200px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: #fff; line-height: 1.6; scroll-behavior: smooth; overflow-x: hidden; }
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #000; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
-
-        .top-bar { background: var(--primary); color: #fff; text-align: center; padding: 6px; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; position: fixed; width: 100%; top: 0; z-index: 1001; }
-
-        header {
-            padding: 15px 6%; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(0,0,0,0.8); position: sticky; top: 25px; z-index: 1000; border-bottom: 1px solid var(--border);
-            backdrop-filter: blur(20px);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-        .logo { font-size: 26px; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: -1px; }
-        .logo span { color: var(--primary); }
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg-start);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--brand-emerald);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-blue);
+        }
 
-        .hero { padding: 140px 20px 60px; text-align: center; background: radial-gradient(circle at top, #2d0a13 0%, #000 60%); }
-        .hero h1 { font-size: clamp(35px, 8vw, 65px); font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
-        .hero h1 span { color: var(--primary); }
-        .hero p { color: var(--text-gray); font-size: 18px; max-width: 700px; margin: 0 auto 30px; }
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        /* WHAT YOU GET SECTION */
-        .wyg-title { text-align: center; font-size: 32px; font-weight: 900; margin-bottom: 30px; }
-        .wyg-title span { color: var(--primary); }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg-start) 0%, var(--dark-bg-end) 100%);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--brand-blue);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--brand-emerald);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: var(--padding-section);
+            position: relative;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(90deg, var(--brand-emerald) 0%, var(--brand-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--brand-emerald);
+            color: var(--dark-bg-start);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--brand-blue);
+            color: var(--brand-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--brand-blue);
+            color: var(--dark-bg-start);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn-cta-nav {
+            background: var(--brand-emerald);
+            color: var(--dark-bg-start);
+            padding: 0.7rem 1.8rem;
+            border-radius: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Glassmorphic Card */
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 16px 64px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navigation Bar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(3, 7, 18, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(90deg, var(--brand-emerald) 0%, var(--brand-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo i {
+            color: var(--brand-emerald);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--brand-emerald);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-white);
+        }
+
+        /* Hero Compartment */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding-top: 8rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            flex: 1 1 55%;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--brand-emerald) 0%, var(--brand-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: rgba(243, 244, 246, 0.8);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            flex: 1 1 40%;
+            min-width: 280px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            min-height: 300px;
+        }
+
+        .code-block {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1rem 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: var(--text-white);
+            position: absolute;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
         
-        .feature-card { 
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 25px; 
-            padding: 30px; margin-bottom: 20px; position: relative; transition: 0.3s;
+        .code-block:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            transform: rotate(-5deg);
         }
-        .feature-card:hover { border-color: #333; transform: scale(1.02); }
-        .feature-card .icon-box { font-size: 30px; margin-bottom: 15px; }
-        .feature-card h4 { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
-        .feature-card p { color: var(--text-gray); font-size: 14px; font-weight: 600; }
-        .free-badge { 
-            position: absolute; top: 20px; right: 20px; background: rgba(37, 211, 102, 0.15); 
-            color: var(--wa-green); font-size: 10px; font-weight: 900; padding: 4px 12px; border-radius: 50px; 
+        .code-block:nth-child(2) {
+            bottom: 10%;
+            right: 10%;
+            transform: rotate(8deg);
+            background: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+        .code-block span {
+            display: block;
+            white-space: pre;
+        }
+        .code-block .keyword { color: var(--brand-emerald); }
+        .code-block .string { color: var(--brand-blue); }
+        .code-block .comment { color: #888; }
+
+
+        /* Services Module */
+        #services .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            justify-content: center;
         }
 
-        .industry-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 40px; margin-top: 50px; }
-        .tag { background: #111; border: 1px solid var(--border); padding: 8px 18px; border-radius: 50px; font-size: 13px; font-weight: 600; color: #eee; transition: 0.3s; }
-        .tag i { color: var(--primary); margin-right: 6px; }
-
-        .section-title { text-align: center; margin-bottom: 40px; font-size: clamp(30px, 5vw, 42px); font-weight: 900; }
-        .section-title span { color: var(--primary); }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 80px; }
-        
-        .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 35px; padding: 45px 25px; transition: 0.4s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 15px 30px rgba(255, 30, 86, 0.1); }
-        .card h3 { font-size: 12px; color: var(--text-gray); text-transform: uppercase; margin-bottom: 15px; letter-spacing: 2px; }
-        .card h2 { font-size: 42px; margin-bottom: 25px; font-weight: 900; }
-        .card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
-        .card ul li { margin-bottom: 12px; font-size: 14px; color: #e2e8f0; display: flex; align-items: center; gap: 10px; }
-        .card ul li i { color: var(--primary); font-size: 12px; }
-        
-        .buy-btn { display: block; text-align: center; padding: 15px; border-radius: 18px; text-decoration: none; font-weight: 900; background: var(--primary); color: #fff; transition: 0.3s; font-size: 13px; text-transform: uppercase; }
-        
-        .saas-card { border: 2px solid var(--gold) !important; background: linear-gradient(145deg, #0d0d0d, #1a1300); }
-        .saas-card .buy-btn { background: var(--gold); color: #000; }
-
-        /* Floating WA */
-        .wa-wrapper { position: fixed; bottom: 30px; left: 30px; z-index: 9999; }
-        .wa-bubble {
-            background: #1c1c1c; color: #fff; padding: 25px; border-radius: 25px;
-            margin-bottom: 12px; box-shadow: 0 25px 60px rgba(0,0,0,0.8);
-            max-width: 320px; display: none; opacity: 0; transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative;
-            border: 1px solid var(--border);
+        #services .glass-card {
+            padding: 2.5rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .wa-bubble.show { display: block; opacity: 1; transform: translateY(0); }
-        .wa-status { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--wa-green); margin-bottom: 10px; font-weight: 800; text-transform: uppercase; }
-        .wa-status span { width: 8px; height: 8px; background: var(--wa-green); border-radius: 50%; display: inline-block; animation: blink 1.5s infinite; }
-        @keyframes blink { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
-        
-        .wa-close { position: absolute; top: 15px; right: 15px; cursor: pointer; color: #555; font-size: 20px; }
-        .wa-icon { width: 65px; height: 65px; background: var(--wa-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; color: #fff; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        .red-cta { background: var(--primary); padding: 70px 30px; text-align: center; border-radius: 40px; margin: 80px 0; }
-        .order-white { background: #fff; color: #000 !important; padding: 18px 40px; border-radius: 100px; text-decoration: none; font-weight: 900; display: inline-flex; align-items: center; gap: 10px; font-size: 16px; }
-
-        /* PROFESSIONAL FOOTER */
-        footer { 
-            text-align: center; 
-            padding: 40px 20px; 
-            border-top: 1px solid var(--border); 
-            color: var(--text-gray); 
-            background: #050505;
+        #services .glass-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--brand-emerald);
         }
-        footer .footer-logo { font-size: 20px; font-weight: 900; color: #fff; margin-bottom: 10px; display: block; }
-        footer p { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.8; }
+        
+        #services .glass-card p {
+            font-size: 1rem;
+            color: rgba(243, 244, 246, 0.7);
+            flex-grow: 1;
+        }
+
+        #services .glass-card .price-hook {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--brand-blue);
+            margin-top: 1.5rem;
+        }
+
+        /* Pricing Packages */
+        #packages .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            justify-content: center;
+        }
+
+        #packages .price-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        #packages .price-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 16px 64px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        #packages .price-card h3 {
+            font-size: 2rem;
+            color: var(--brand-emerald);
+            margin-bottom: 0.5rem;
+        }
+
+        #packages .price-card .tag {
+            background: var(--brand-blue);
+            color: var(--dark-bg-start);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 0.3rem;
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            transform: rotate(5deg);
+            z-index: 5;
+        }
+
+        #packages .price-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--brand-blue);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+        }
+
+        #packages .price-card .price sup {
+            font-size: 1.5rem;
+            margin-right: 0.3rem;
+        }
+
+        #packages .price-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        #packages .price-card ul li {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            color: rgba(243, 244, 246, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        #packages .price-card ul li i {
+            color: var(--brand-emerald);
+            font-size: 1.1rem;
+        }
+
+        #packages .price-card .btn {
+            width: 100%;
+        }
+
+        /* Business Categories Showcase */
+        #templates .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        #templates .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 0.8rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        #templates .category-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        #templates .category-item i {
+            font-size: 3.5rem;
+            color: var(--brand-emerald);
+            margin-bottom: 1rem;
+        }
+
+        #templates .category-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+
+        #templates .category-item p {
+            font-size: 0.9rem;
+            color: rgba(243, 244, 246, 0.7);
+        }
+
+        .customization-freedom {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .customization-freedom h3 {
+            font-size: 2.2rem;
+            color: var(--brand-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .customization-freedom p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            color: rgba(243, 244, 246, 0.8);
+        }
+
+        .customization-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .customization-tags span {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--brand-emerald);
+            padding: 0.7rem 1.2rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--brand-emerald);
+        }
+
+        /* Roadmap Engine */
+        #process .roadmap-timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+            padding: 4rem 0;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        #process .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--brand-emerald), var(--brand-blue));
+            transform: translateY(-50%);
+            z-index: 0;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            #process .roadmap-timeline {
+                flex-direction: column;
+                align-items: center;
+                padding-left: 1.5rem;
+            }
+            #process .roadmap-timeline::before {
+                height: 100%;
+                width: 4px;
+                left: 20px;
+                top: 0;
+                transform: none;
+                background: linear-gradient(180deg, var(--brand-emerald), var(--brand-blue));
+            }
+        }
+
+        #process .roadmap-step {
+            flex: 1;
+            max-width: 20%;
+            min-width: 200px;
+            position: relative;
+            text-align: center;
+            padding: 1rem;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            #process .roadmap-step {
+                max-width: 100%;
+                text-align: left;
+                padding-left: 4rem;
+            }
+            #process .roadmap-step:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+
+        #process .roadmap-step .icon-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--brand-emerald), var(--brand-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            font-size: 1.8rem;
+            color: var(--dark-bg-start);
+            border: 5px solid var(--dark-bg-end);
+            box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            #process .roadmap-step .icon-circle {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 0;
+            }
+        }
+
+        #process .roadmap-step h4 {
+            font-size: 1.3rem;
+            color: var(--text-white);
+        }
+
+        #process .trust-seals {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        #process .trust-seal-item {
+            text-align: center;
+            flex: 1 1 250px;
+        }
+
+        #process .trust-seal-item i {
+            font-size: 3.5rem;
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+        }
+
+        #process .trust-seal-item h4 {
+            font-size: 1.5rem;
+            color: var(--text-white);
+            font-weight: 500;
+        }
+
+        /* Client Dashboard Mockup */
+        #dashboard .dashboard-mockup {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+            min-height: 500px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            overflow: hidden;
+        }
+        
+        @media (max-width: 992px) {
+            #dashboard .dashboard-mockup {
+                flex-direction: column;
+            }
+        }
+
+        #dashboard .sidebar {
+            flex: 0 0 220px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 0.8rem;
+            padding: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        @media (max-width: 992px) {
+            #dashboard .sidebar {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+        }
+
+        #dashboard .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1.5rem;
+            color: rgba(243, 244, 246, 0.7);
+            font-weight: 500;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        #dashboard .sidebar a:hover,
+        #dashboard .sidebar a.active {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--brand-emerald);
+            border-left: 4px solid var(--brand-emerald);
+        }
+        
+        @media (max-width: 992px) {
+            #dashboard .sidebar a {
+                border-left: none;
+                border-bottom: 3px solid transparent;
+            }
+            #dashboard .sidebar a:hover,
+            #dashboard .sidebar a.active {
+                border-left: none;
+                border-bottom: 3px solid var(--brand-emerald);
+            }
+        }
+
+        #dashboard .main-content {
+            flex: 1;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            #dashboard .main-content {
+                flex-direction: column;
+            }
+        }
+
+        #dashboard .progress-panel {
+            flex: 2;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 0.8rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #dashboard .progress-panel h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--brand-emerald);
+        }
+
+        #dashboard .progress-bar-wrapper {
+            width: 100%;
+            height: 12px;
+            background-color: rgba(243, 244, 246, 0.1);
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        #dashboard .progress-bar {
+            height: 100%;
+            width: 75%; 
+            background: linear-gradient(90deg, var(--brand-emerald), var(--brand-blue));
+            border-radius: 6px;
+            transition: width 1s ease-out;
+        }
+
+        #dashboard .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: rgba(243, 244, 246, 0.7);
+        }
+
+        #dashboard .support-chat {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 0.8rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #dashboard .chat-header {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--brand-blue);
+            margin-bottom: 1rem;
+        }
+
+        #dashboard .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: 250px;
+            padding-right: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        #dashboard .chat-messages::-webkit-scrollbar { width: 5px; }
+        #dashboard .chat-messages::-webkit-scrollbar-track { background: transparent; }
+        #dashboard .chat-messages::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
+
+        #dashboard .message {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.7rem 1rem;
+            border-radius: 0.8rem;
+            margin-bottom: 0.8rem;
+            max-width: 85%;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        #dashboard .message.user {
+            margin-left: auto;
+            background: var(--brand-emerald);
+            color: var(--dark-bg-start);
+            border-bottom-right-radius: 0;
+        }
+        #dashboard .message.admin {
+            margin-right: auto;
+            background: var(--brand-blue);
+            color: var(--dark-bg-start);
+            border-bottom-left-radius: 0;
+        }
+
+        #dashboard .chat-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        #dashboard .chat-input-wrapper input {
+            flex-grow: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--text-white);
+            font-size: 0.9rem;
+        }
+        #dashboard .chat-input-wrapper input::placeholder {
+            color: rgba(243, 244, 246, 0.5);
+        }
+        #dashboard .chat-input-wrapper button {
+            background: var(--brand-emerald);
+            color: var(--dark-bg-start);
+            border: none;
+            padding: 0.8rem 1.2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        #dashboard .chat-input-wrapper button:hover {
+            background: var(--brand-blue);
+        }
+
+        /* Lead Capture Corner */
+        #contact .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 4rem;
+            align-items: center;
+        }
+
+        #contact .connect-hooks {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        #contact .connect-hooks h3 {
+            font-size: 2.5rem;
+            color: var(--brand-emerald);
+            line-height: 1.2;
+        }
+
+        #contact .connect-hooks p {
+            font-size: 1.1rem;
+            color: rgba(243, 244, 246, 0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        #contact .whatsapp-btn {
+            background: var(--brand-emerald);
+            color: var(--dark-bg-start);
+            padding: 1.2rem 2.5rem;
+            border-radius: 0.6rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+            animation: pulse-emerald 2s infinite ease-in-out;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #contact .whatsapp-btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 35px rgba(16, 185, 129, 0.7);
+        }
+        @keyframes pulse-emerald {
+            0% { box-shadow: 0 0 25px rgba(16, 185, 129, 0.5); }
+            50% { box-shadow: 0 0 35px rgba(16, 185, 129, 0.8); }
+            100% { box-shadow: 0 0 25px rgba(16, 185, 129, 0.5); }
+        }
+
+        #contact .contact-form {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        #contact .contact-form h4 {
+            font-size: 2rem;
+            color: var(--brand-blue);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        #contact .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        #contact .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+            font-weight: 500;
+        }
+
+        #contact .form-group input,
+        #contact .form-group select,
+        #contact .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.5rem;
+            color: var(--text-white);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contact .form-group input:focus,
+        #contact .form-group select:focus,
+        #contact .form-group textarea:focus {
+            border-color: var(--brand-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+        }
+
+        #contact .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        #contact .form-group select option {
+            background: var(--dark-bg-end);
+            color: var(--text-white);
+        }
+
+        #contact .submit-btn {
+            width: 100%;
+            background: var(--brand-emerald);
+            color: var(--dark-bg-start);
+            padding: 1.2rem 2.5rem;
+            border-radius: 0.6rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+            animation: pulse-emerald 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+        #contact .submit-btn:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 0 35px rgba(16, 185, 129, 0.7);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(243, 244, 246, 0.1);
+            color: rgba(243, 244, 246, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer .social-links a {
+            color: var(--text-white);
+            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            color: var(--brand-emerald);
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            .section-heading {
+                font-size: 2.2rem;
+            }
+            .nav-links {
+                gap: 1.5rem;
+            }
+            .nav-links a {
+                font-size: 0.95rem;
+            }
+            .btn-cta-nav {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 38px; }
-            .grid { grid-template-columns: 1fr; }
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(3, 7, 18, 0.95);
+                backdrop-filter: blur(15px);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 1.5rem 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            .nav-links a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .btn-cta-nav {
+                margin-left: auto;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-text, .hero-visual {
+                flex: 1 1 100%;
+                min-width: unset;
+                max-width: 100%;
+            }
+            .hero-actions {
+                justify-content: center;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            #services .glass-card {
+                padding: 2rem;
+            }
+            #services .glass-card h3 {
+                font-size: 1.5rem;
+            }
+
+            #packages .price-card {
+                padding: 2rem;
+            }
+            #packages .price-card h3 {
+                font-size: 1.8rem;
+            }
+            #packages .price-card .price {
+                font-size: 2.5rem;
+            }
+            #packages .price-card .price sup {
+                font-size: 1.2rem;
+            }
+
+            #templates .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
+            #templates .customization-freedom {
+                padding: 2rem;
+            }
+            #templates .customization-freedom h3 {
+                font-size: 1.8rem;
+            }
+            #templates .customization-freedom p {
+                font-size: 1rem;
+            }
+
+            #process .trust-seals {
+                flex-direction: column;
+                padding: 2rem;
+            }
+            #process .trust-seal-item {
+                flex: 1 1 100%;
+            }
+
+            #contact .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            #contact .connect-hooks h3 {
+                font-size: 2rem;
+            }
+            #contact .contact-form {
+                padding: 2rem;
+            }
+            #contact .contact-form h4 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .section-heading {
+                font-size: 1.8rem;
+            }
+            #services .service-grid, #packages .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            #templates .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+            .customization-tags span {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            #dashboard .support-chat {
+                padding: 1rem;
+            }
+            #dashboard .chat-input-wrapper input {
+                padding: 0.6rem 0.8rem;
+            }
+            #dashboard .chat-input-wrapper button {
+                padding: 0.6rem 1rem;
+            }
+            #contact .whatsapp-btn {
+                font-size: 1rem;
+                padding: 1rem 1.8rem;
+            }
+            #contact .contact-form h4 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="top-bar">Gaya's Digital Hub • NetFly Web Solutions</div>
-
-    <header>
-        <a href="#" class="logo">NetFly <span>Web</span></a>
-        <a href="https://wa.me/917783059283" style="background:var(--wa-green); color:#fff; padding:10px 20px; border-radius:50px; text-decoration:none; font-weight:800; font-size:12px;">
-            <i class="fab fa-whatsapp"></i> CONTACT US
-        </a>
+    <header class="header">
+        <nav class="navbar container">
+            <a href="#home" class="logo">
+                <i class="fas fa-rocket"></i> NetFly Web
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#packages">Packages</a></li>
+                <li><a href="#templates">Templates</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn btn-cta-nav">Launch Your Site</a></li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
 
-    <section class="hero">
-        <h1>Ab Har Business Banega <span>Brand</span></h1>
-        <p>Gaya ke businesses ke liye professional websites aur software solutions by NetFly Web.</p>
-    </section>
-
-    <div class="container">
-
-        <h2 class="wyg-title">What <span>You Get?</span></h2>
-        
-        <div class="feature-card">
-            <span class="free-badge">FREE</span>
-            <div class="icon-box"><i class="fas fa-cloud-bolt" style="color: #4a9eff;"></i></div>
-            <h4>Super Fast Hosting</h4>
-            <p>NetFly Web aapko deta hai 1 saal ki free super-fast hosting.</p>
-        </div>
-
-        <div class="feature-card">
-            <span class="free-badge">FREE</span>
-            <div class="icon-box"><i class="fas fa-lock" style="color: var(--gold);"></i></div>
-            <h4>SSL Security</h4>
-            <p>Aapki website rahegi 100% secure aur trusted.</p>
-        </div>
-
-        <div class="feature-card" style="margin-bottom: 50px;">
-            <span class="free-badge">FREE</span>
-            <div class="icon-box"><i class="fab fa-whatsapp" style="color: var(--wa-green);"></i></div>
-            <h4>WhatsApp Integration</h4>
-            <p>Customers se direct connect karein bina kisi extra charge ke.</p>
-        </div>
-        
-        <h2 class="section-title">Website <span>Plans</span></h2>
-        
-        <div class="industry-tags">
-            <div class="tag"><i class="fas fa-school"></i> Schools</div>
-            <div class="tag"><i class="fas fa-utensils"></i> Restaurants</div>
-            <div class="tag"><i class="fas fa-hotel"></i> Hotels</div>
-            <div class="tag"><i class="fas fa-shopping-cart"></i> Shops</div>
-            <div class="tag"><i class="fas fa-book"></i> Coaching</div>
-        </div>
-
-        <div class="grid">
-            <div class="card">
-                <h3>Shop/General Store</h3>
-                <h2>₹599</h2>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Digital Product List</li>
-                    <li><i class="fa-solid fa-check"></i> WhatsApp Order Button</li>
-                    <li><i class="fa-solid fa-check"></i> Free Hosting & SSL</li>
-                </ul>
-                <a href="https://wa.me/917783059283?text=Hi_NetFly_Order_Web_599" class="buy-btn">Order Now</a>
+    <main>
+        <!-- Hero Compartment -->
+        <section id="home">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Professional Websites For Every Business Starting At Affordable Prices</h1>
+                    <p>NetFly Web creates premium business websites, high-speed e-commerce stores, and custom digital solutions bundled with domain setup, elite hosting, SEO, and lifetime maintenance support.</p>
+                    <div class="hero-actions">
+                        <a href="#packages" class="btn btn-primary">View Website Packages</a>
+                        <a href="#contact" class="btn btn-secondary">Get Your Website Now</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-block">
+                        <span class="keyword">const</span> <span class="string">siteConfig</span> = {</span>
+                        <span>  <span class="string">theme</span>: <span class="string">'dark'</span>,</span>
+                        <span>  <span class="string">responsive</span>: <span class="keyword">true</span>,</span>
+                        <span>};                    </div>
+                    <div class="code-block">
+                        <span><span class="comment">// Server Status: Online</span></span>
+                        <span><span class="keyword">function</span> <span class="string">deploySuccess</span>() {</span>
+                        <span>  <span class="keyword">return</span> <span class="string">'Live!'</span>;</span>
+                        <span>}</span>
+                    </div>
+                </div>
             </div>
-            <div class="card" style="border-color: var(--primary);">
-                <div style="position:absolute; top:15px; right:15px; background:var(--primary); font-size:9px; padding:4px 10px; border-radius:50px; font-weight:900;">POPULAR</div>
-                <h3>School & Coaching</h3>
-                <h2>₹899</h2>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Inquiry Management</li>
-                    <li><i class="fa-solid fa-check"></i> Multi-Page Professional</li>
-                    <li><i class="fa-solid fa-check"></i> Free Hosting & SSL</li>
-                </ul>
-                <a href="https://wa.me/917783059283?text=Hi_NetFly_Order_Web_899" class="buy-btn">Order Now</a>
+        </section>
+
+        <!-- Powerful Services Module -->
+        <section id="services" class="container">
+            <h2 class="section-heading">Powerful Services Built for Growth</h2>
+            <div class="service-grid">
+                <div class="glass-card">
+                    <h3><i class="fas fa-code"></i> Web Development</h3>
+                    <p>Full stack business templates, customized stores, high-converting landing pages tailored to your brand's unique identity and audience.</p>
+                    <div class="price-hook">Starting ₹4999</div>
+                </div>
+                <div class="glass-card">
+                    <h3><i class="fas fa-globe"></i> Managed Domain Setup</h3>
+                    <p>Hassle-free domain registration guidance, instant server connection, and all essential technical configurations for a smooth launch.</p>
+                    <div class="price-hook">Starting ₹800</div>
+                </div>
+                <div class="glass-card">
+                    <h3><i class="fas fa-cloud"></i> High-Speed Cloud Hosting</h3>
+                    <p>Immediate deployment triggers, free SSL certificate implementation, and robust fast infrastructure ensuring your site is always available and quick.</p>
+                    <div class="price-hook">Starting ₹1000</div>
+                </div>
+                <div class="glass-card">
+                    <h3><i class="fas fa-search"></i> Complete SEO Engine</h3>
+                    <p>Google Index optimization, rich-snippets setup, structural speed tuning, and comprehensive keyword indexing for top search rankings.</p>
+                    <div class="price-hook">Starting ₹3000</div>
+                </div>
+                <div class="glass-card">
+                    <h3><i class="fas fa-tools"></i> Monthly Maintenance Desk</h3>
+                    <p>Ongoing core technical updates, daily security patching, performance monitoring, and live support logs to keep your site pristine.</p>
+                    <div class="price-hook">Starting ₹1000/month</div>
+                </div>
             </div>
-            <div class="card">
-                <h3>Hotel & Premium</h3>
-                <h2>₹999</h2>
-                <ul>
-                    <li><i class="fa-solid fa-check"></i> Booking System</li>
-                    <li><i class="fa-solid fa-check"></i> Custom .com Domain</li>
-                    <li><i class="fa-solid fa-check"></i> Premium SEO Setup</li>
-                </ul>
-                <a href="https://wa.me/917783059283?text=Hi_NetFly_Order_Web_999" class="buy-btn">Order Now</a>
+        </section>
+
+        <!-- Platform Pricing Packages -->
+        <section id="packages" class="container">
+            <h2 class="section-heading">Choose Your Perfect Website Package</h2>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Starter Plan</h3>
+                    <div class="price"><sup>₹</sup>999</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> One-page fast layout</li>
+                        <li><i class="fas fa-check-circle"></i> Mobile optimized</li>
+                        <li><i class="fas fa-check-circle"></i> Instant WhatsApp chat link</li>
+                        <li><i class="fas fa-check-circle"></i> Ideal for local micro-shops</li>
+                        <li><i class="fas fa-check-circle"></i> Basic design customization</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Select Plan</a>
+                </div>
+                <div class="price-card">
+                    <span class="tag">Popular Selection</span>
+                    <h3>Business Plan</h3>
+                    <div class="price"><sup>₹</sup>3000</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Comprehensive multi-page setup</li>
+                        <li><i class="fas fa-check-circle"></i> Embedded customer inquiry forms</li>
+                        <li><i class="fas fa-check-circle"></i> Interactive Google Map module</li>
+                        <li><i class="fas fa-check-circle"></i> Baseline SEO optimization</li>
+                        <li><i class="fas fa-check-circle"></i> Standard hosting integration</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Select Plan</a>
+                </div>
+                <div class="price-card">
+                    <h3>Premium Suite</h3>
+                    <div class="price"><sup>₹</sup>10,000</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Complete custom layout structure</li>
+                        <li><i class="fas fa-check-circle"></i> High-end micro-interactions</li>
+                        <li><i class="fas fa-check-circle"></i> Complete branding setup</li>
+                        <li><i class="fas fa-check-circle"></i> Priority hosting/domain handoff</li>
+                        <li><i class="fas fa-check-circle"></i> Advanced security features</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Select Plan</a>
+                </div>
+                <div class="price-card">
+                    <h3>E-commerce Megastore</h3>
+                    <div class="price"><sup>₹</sup>15,000+</div>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Dedicated product inventory layouts</li>
+                        <li><i class="fas fa-check-circle"></i> Shopping cart drawer UI</li>
+                        <li><i class="fas fa-check-circle"></i> Mock payment gateway triggers</li>
+                        <li><i class="fas fa-check-circle"></i> Automated order notification panels</li>
+                        <li><i class="fas fa-check-circle"></i> Scalable product management</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Select Plan</a>
+                </div>
             </div>
+        </section>
+
+        <!-- Segmented Business Categories Showcase -->
+        <section id="templates" class="container">
+            <h2 class="section-heading">Specialized Websites for Your Business Niche</h2>
+            <div class="category-grid">
+                <div class="category-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <h4>Gyms</h4>
+                    <p>Membership trackers, class schedules, trainer profiles.</p>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-store"></i>
+                    <h4>General Stores</h4>
+                    <p>Quick product order lists, seasonal promotions.</p>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-utensils"></i>
+                    <h4>Restaurants</h4>
+                    <p>Dynamic menu lists, online reservations, daily specials.</p>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-user-md"></i>
+                    <h4>Medical Clinics</h4>
+                    <p>Doctor booking forms, service listings, patient resources.</p>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h4>E-commerce</h4>
+                    <p>Add to cart buttons, product galleries, secure checkout.</p>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-house-user"></i>
+                    <h4>Real Estate</h4>
+                    <p>Property feature listings, agent profiles, virtual tours.</p>
+                </div>
+            </div>
+
+            <div class="customization-freedom">
+                <h3>Your Vision, Our Expertise: Customization Freedom</h3>
+                <p>At NetFly Web, we believe your website should truly reflect your brand. We offer unparalleled flexibility to customize every aspect of your digital presence:</p>
+                <div class="customization-tags">
+                    <span>Brand Name</span>
+                    <span>Logo Files</span>
+                    <span>Color Palettes</span>
+                    <span>Asset Images</span>
+                    <span>Service Lists</span>
+                    <span>Social Media Connections</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Engine ("How It Works") -->
+        <section id="process" class="container">
+            <h2 class="section-heading">Our Streamlined Website Creation Process</h2>
+            <div class="roadmap-timeline">
+                <div class="roadmap-step">
+                    <div class="icon-circle"><i class="fas fa-clipboard-list"></i></div>
+                    <h4>1. Choose Template Category</h4>
+                    <p>Select from diverse industry-specific templates.</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="icon-circle"><i class="fas fa-pencil-alt"></i></div>
+                    <h4>2. Submit Brand Details</h4>
+                    <p>Provide your logo, content, and specific requirements.</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="icon-circle"><i class="fas fa-robot"></i></div>
+                    <h4>3. AI Orchestration Design</h4>
+                    <p>Our intelligent systems craft a bespoke design for you.</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="icon-circle"><i class="fas fa-link"></i></div>
+                    <h4>4. Link Domain & Cloud Servers</h4>
+                    <p>Seamlessly connect your domain and deploy to cloud hosting.</p>
+                </div>
+                <div class="roadmap-step">
+                    <div class="icon-circle"><i class="fas fa-check-circle"></i></div>
+                    <h4>5. System Goes Live!</h4>
+                    <p>Your professional website is now active and ready to grow.</p>
+                </div>
+            </div>
+
+            <div class="trust-seals">
+                <div class="trust-seal-item">
+                    <i class="fas fa-tags"></i>
+                    <h4>Absolute Affordability</h4>
+                </div>
+                <div class="trust-seal-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>100% SEO Architecture</h4>
+                </div>
+                <div class="trust-seal-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h4>Hyper-fast Delivery</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Dashboard Mockup Screen -->
+        <section id="dashboard" class="container">
+            <h2 class="section-heading">Your Dedicated Client Dashboard</h2>
+            <div class="dashboard-mockup">
+                <div class="sidebar">
+                    <a href="#" class="active"><i class="fas fa-clipboard-list"></i> Active Orders</a>
+                    <a href="#"><i class="fas fa-file-invoice"></i> Billing</a>
+                    <a href="#"><i class="fas fa-headset"></i> Support Chat</a>
+                </div>
+                <div class="main-content">
+                    <div class="progress-panel">
+                        <h4>Website Project Progress</h4>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span>Website Design</span>
+                            <span>Server Sync</span>
+                            <span>SEO Ready</span>
+                        </div>
+                    </div>
+                    <div class="support-chat">
+                        <div class="chat-header">Live Support Chat</div>
+                        <div class="chat-messages">
+                            <div class="message admin">Hi there! How can I assist you with your project today?</div>
+                            <div class="message user">I need to update my logo and brand colors.</div>
+                            <div class="message admin">No problem! Please upload your new logo and specify your preferred hex codes.</div>
+                            <div class="message user">Okay, uploading them now. When will the changes reflect?</div>
+                        </div>
+                        <div class="chat-input-wrapper">
+                            <input type="text" placeholder="Type your message...">
+                            <button><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- High-Conversion Lead Capture Corner -->
+        <section id="contact" class="container">
+            <h2 class="section-heading">Ready to Launch Your Professional Website?</h2>
+            <div class="contact-grid">
+                <div class="connect-hooks">
+                    <h3>Get a Free Consultation & Personalized Quote Today!</h3>
+                    <p>Our team of experts is ready to transform your business idea into a stunning digital reality. Reach out now for a no-obligation discussion.</p>
+                    <a href="https://wa.me/917783059283" target="_blank" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Live Support
+                    </a>
+                </div>
+                <div class="contact-form glass-card">
+                    <h4>Request Your Free Consultation</h4>
+                    <form id="whatsappForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="category">Selected Business Category</label>
+                            <select id="category" name="category" required>
+                                <option value="">Select a category</option>
+                                <option value="gym">Gym</option>
+                                <option value="general_store">General Store</option>
+                                <option value="restaurant">Restaurant</option>
+                                <option value="medical_clinic">Medical Clinic</option>
+                                <option value="e-commerce">E-commerce</option>
+                                <option value="real_estate">Real Estate</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us more about your project needs and vision..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Request Free Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a> | 
+                <a href="#services">Services</a> | 
+                <a href="#packages">Packages</a> | 
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links" style="margin: 1.5rem 0;">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2023 NetFly Web. All rights reserved.</p>
         </div>
-
-        <h2 class="section-title">Software <span>Solutions</span></h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Essential Tool</h3>
-                <h2>₹399</h2>
-                <ul>
-                    <li><i class="fa-solid fa-file-invoice"></i> Simple Billing Tool</li>
-                    <li><i class="fa-solid fa-check"></i> Daily Sales Report</li>
-                </ul>
-                <a href="https://wa.me/917783059283?text=Hi_NetFly_Order_Soft_399" class="buy-btn">Order Now</a>
-            </div>
-            <div class="card">
-                <h3>Business Suite</h3>
-                <h2>₹599</h2>
-                <ul>
-                    <li><i class="fa-solid fa-boxes-stacked"></i> Inventory Management</li>
-                    <li><i class="fa-solid fa-check"></i> Low Stock Alerts</li>
-                </ul>
-                <a href="https://wa.me/917783059283?text=Hi_NetFly_Order_Soft_599" class="buy-btn">Order Now</a>
-            </div>
-            <div class="card">
-                <h3>Enterprise Cloud</h3>
-                <h2>₹899</h2>
-                <ul>
-                    <li><i class="fa-solid fa-cloud"></i> Online Data Sync</li>
-                    <li><i class="fa-solid fa-check"></i> Multi-User Support</li>
-                </ul>
-                <a href="https://wa.me/917783059283?text=Hi_NetFly_Order_Soft_899" class="buy-btn">Order Now</a>
-            </div>
-            <div class="card saas-card">
-                <h3>Custom SaaS</h3>
-                <h2>₹2500</h2>
-                <ul>
-                    <li><i class="fa-solid fa-rocket"></i> Full Automation</li>
-                    <li><i class="fa-solid fa-wand-magic-sparkles"></i> <b>Built by NetFly Web</b></li>
-                </ul>
-                <a href="https://wa.me/917783059283?text=Hi_NetFly_Order_SaaS_2500" class="buy-btn">Build My SaaS</a>
-            </div>
-        </div>
-
-        <div class="red-cta">
-            <h2>Ready to Scale Your Business?</h2>
-            <p style="margin-bottom: 30px; opacity: 0.9;">Professional tech services by NetFly Web.</p>
-            <a href="https://wa.me/917783059283" class="order-white">
-                <i class="fab fa-whatsapp"></i> Consult with Expert
-            </a>
-        </div>
-
-    </div>
-
-    <footer>
-        <span class="footer-logo">NetFly <span style="color:var(--primary)">Web</span> Innovation</span>
-        <p>Manpur, Gaya (Bihar) • Official Digital Partner</p>
-        <p style="margin-top: 10px; font-size: 10px; opacity: 0.5;">© 2026 All Rights Reserved.</p>
     </footer>
 
-    <div class="wa-wrapper">
-        <div class="wa-bubble" id="waPop">
-            <div class="wa-close" onclick="closePopup()">×</div>
-            <div class="wa-status"><span></span> Expert Online</div>
-            <h4 style="margin-bottom: 10px; font-weight: 900;">NetFly Business Desk</h4>
-            <p style="font-size: 13px; color: #bbb; line-height: 1.4;">"Hum aapke business ko online grow karne mein help kar sakte hain. **Free Business Consultation** ke liye abhi chat shuru karein."</p>
-            <button onclick="redirectToWA()" style="margin-top: 15px; width: 100%; padding: 12px; border: none; border-radius: 12px; background: var(--wa-green); color: #fff; font-weight: 800; cursor: pointer;">Start Consultation</button>
-        </div>
-        <a href="javascript:void(0)" class="wa-icon" onclick="redirectToWA()">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
     <script>
-        function redirectToWA() { window.location.href = "https://wa.me/917783059283?text=Hi%20NetFly%20Web,%20I%20need%20a%20professional%20consultation%20for%20my%20business."; }
-        function closePopup() { 
-            const pop = document.getElementById('waPop');
-            pop.classList.remove('show');
-            setTimeout(() => { pop.style.display = 'none'; }, 500);
-        }
-        window.onload = function() {
-            const pop = document.getElementById('waPop');
-            // Popup timing changed to 1.5 seconds (1500ms)
-            setTimeout(() => { 
-                pop.style.display = 'block';
-                // Trigger show class for animation
-                setTimeout(() => { pop.classList.add('show'); }, 50); 
-                
-                // Auto close after 12 seconds
-                setTimeout(() => { 
-                    if(pop.classList.contains('show')) closePopup(); 
-                }, 12000); 
-            }, 1500); 
-        };
-    </script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links li a');
 
+            mobileMenu.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            const contactForm = document.getElementById('whatsappForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // फॉर्म डेटा कलेक्ट करना
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const category = document.getElementById('category').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // आपका व्हाट्सएप नंबर (देश कोड 91 के साथ)
+                    const whatsappNumber = "917783059283";
+                    
+                    // मैसेज फॉर्मेट तैयार करना
+                    const textMessage = `*New Website Inquiry*\n\n` +
+                                        `*Name:* ${name}\n` +
+                                        `*Phone:* ${phone}\n` +
+                                        `*Category:* ${category}\n` +
+                                        `*Message:* ${message}`;
+                    
+                    // URL-encode करना ताकि स्पेस और स्पेशल कैरेक्टर सही से जाएं
+                    const encodedMessage = encodeURIComponent(textMessage);
+                    
+                    // व्हाट्सएप API URL बनाना
+                    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                    
+                    // यूजर को नए टैब में व्हाट्सएप पर भेजना
+                    window.open(whatsappUrl, '_blank');
+                    
+                    // फॉर्म रीसेट करना
+                    this.reset();
+                });
+            }
+        });
+    </script>
 </body>
 </html>
-                               
+    
